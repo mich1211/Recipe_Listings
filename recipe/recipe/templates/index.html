@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe Listings</title>
+    <style>
+        body {
+            background-color: #ffffcc; /* Yellow */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        nav {
+            background-color: #ffffcc; /* Yellow */
+            color: #333; /* Dark Gray */
+            padding: 20px;
+            text-align: center;
+        }
+        nav h1 {
+            font-size: 2.5em;
+            margin: 10px 0;
+            color: #333; /* Dark Gray */
+        }
+        nav h5 {
+            margin: 5px 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .recipe {
+            background-color: #fff; /* White */
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .recipe h2 {
+            color: #333; /* Dark Gray */
+        }
+        .recipe p {
+            color: #666; /* Medium Gray */
+        }
+        .recipe img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        .upload-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #333; /* Dark Gray */
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .upload-link:hover {
+            color: #666; /* Medium Gray */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>"5-mins"Recipes</h1>
+        <h5>Developed by Michelle Dsouza</h5>
+      </nav>
+    <div class="container">
+        {% for recipe in recipes %}
+            <div class="recipe">
+                <h2>{{ recipe.title }}</h2>
+                <p>Ingredients: {{ recipe.ingredients }}</p>
+                <p>Directions: {{ recipe.description }}</p>
+                <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
+            </div>
+        {% endfor %}
+        <a href="{% url 'upload' %}" class="upload-link">Add your Recipe</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Recipe</title>
+    <style>
+        body {
+            background-color: #ffffcc; /* Yellow */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        nav {
+            background-color: #ffffcc; /* Yellow */
+            color: #333; /* Dark Gray */
+            padding: 20px;
+            text-align: center;
+        }
+        nav h1 {
+            font-size: 2.5em;
+            margin: 10px 0;
+            color: #333; /* Dark Gray */
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 20px;
+            background-color: #fff; /* White */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            margin-top: 30px;
+            text-align: center;
+            color: #333; /* Dark Gray */
+        }
+        form {
+            margin-top: 20px;
+            text-align: center;
+        }
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc; /* Light Gray */
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="file"] {
+            margin-top: 10px;
+        }
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #45a049; /* Darker Green */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>EasyRecipes</h1>
+        <h5>Developed by Michelle Dsouza</h5>
+    </nav>
+    <div class="container">
+        <h1>Upload Recipe</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" name="title" placeholder="Title"><br>
+            <textarea name="ingredients" placeholder="Ingredients"></textarea><br>
+            <textarea name="description" placeholder="Description"></textarea><br>
+            <input type="file" name="image"><br>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+</body>
+</html>
